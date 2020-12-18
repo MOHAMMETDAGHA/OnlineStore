@@ -13,6 +13,7 @@ import android.widget.BaseAdapter
 class ProductsAdapter (context: Context):
         ArrayAdapter<String>(context , 0){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+//        val layout_inflator = LayoutInflater.from(context).inflate(R.layout.product,parent,false)
         val layout_inflator = LayoutInflater.from(context).inflate(R.layout.product,parent,false)
 
         return layout_inflator
