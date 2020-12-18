@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "775219761368",
+    "project_id": "onlinestore-4462f",
+    "storage_bucket": "onlinestore-4462f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775219761368:android:f0f8f77f8e67553bdc47ad",
+        "android_client_info": {
+          "package_name": "com.mohetabsem.onlinestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775219761368-s0ja0c7opppa6buurn70s4hoiqiua7i7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpJcgs9F9N2PYuCdnblh928A3aeU3edpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775219761368-s0ja0c7opppa6buurn70s4hoiqiua7i7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
