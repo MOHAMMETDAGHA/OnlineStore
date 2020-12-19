@@ -10,6 +10,7 @@
         layout="@layout/toolbar"/>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -21,8 +22,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="PRODUCT NAME"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/productName"
@@ -48,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="PRODUCT PRICE"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/productPrict"
@@ -56,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="price"
+                android:inputType="text"
                 android:textSize="24sp" />
 
             <TextView
@@ -64,7 +66,7 @@
                 android:gravity="center"
                 android:text="PRODUCT description"
                 android:textAllCaps="true"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/productDesc"
@@ -72,14 +74,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="description"
+                android:inputType="text"
                 android:textSize="24sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="MAIN IMAGE"
                 android:textAllCaps="true"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/mainUrl"
@@ -87,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="image url"
+                android:inputType="text"
                 android:textSize="24sp" />
 
             <TextView
@@ -114,4 +119,14 @@
         </LinearLayout>
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cta_add2db"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>
