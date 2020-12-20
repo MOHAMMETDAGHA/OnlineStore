@@ -7,13 +7,13 @@
     android:backgroundTint="#673AB7">
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/prodPriceTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:text="1"
         android:textSize="24sp"
-        app:layout_constraintRight_toRightOf="@+id/imageView3"
+        app:layout_constraintRight_toRightOf="@+id/prodImage"
         app:layout_constraintTop_toTopOf="@+id/prodNameTxt" />
 
     <TextView
@@ -27,20 +27,18 @@
         android:text="TextView"
         android:textColor="@color/primary"
         android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintLeft_toLeftOf="@+id/prodImage"
+        app:layout_constraintTop_toBottomOf="@+id/prodImage" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/prodImage"
         android:layout_width="0dp"
         android:layout_height="157dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="18dp"
+
+        android:background="@android:drawable/ic_menu_crop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/purple_700" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/discriptionTxt"
@@ -59,14 +57,15 @@
         app:layout_constraintTop_toBottomOf="@+id/prodNameTxt" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/add2cart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="add to cart"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/prodImage"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/prodImage"
         app:layout_constraintTop_toBottomOf="@+id/discriptionTxt"
         app:rippleColor="#DF1515" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

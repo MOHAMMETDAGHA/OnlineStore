@@ -1,5 +1,6 @@
 package com.mohetabsem.onlinestore
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
@@ -8,6 +9,7 @@ import android.widget.Toast
 import com.google.firebase.database.*
 import com.mohetabsem.onlinestore.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,29 +18,35 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        product_gv.adapter=ProductsAdapter(this)
-
+        mProductItems = ArrayList()
+        //product_gv.adapter=ProductsAdapter(this)
+        mProductItems= ArrayList()
+        mnue.setOnClickListener {
+            var intent=Intent(this,AddProduct::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
         super.onStart()
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("products")
+
         myRef?.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(applicationContext, "no zeft", Toast.LENGTH_SHORT).show()
             }
             override fun onDataChange(snapshot: DataSnapshot) {
+                Toast.makeText(applicationContext, "db", Toast.LENGTH_SHORT).show()
 
                 mProductItems?.clear()
                 for (m in snapshot!!.children ){ // add keys
-                    var todo =m.getValue(ProductItem::class.java)
-                    mProductItems?.add(0,todo!!)
+                    var item =m.getValue(ProductItem::class.java)
+                    mProductItems?.add(0,item!!)
                     //wtf("++","${m.getValue(Todo::class.java)}")
                 }
-                var a = ProductsAdapter(applicationContext/*, mTodo!!*/)
-                product_gv.adapter=ProductsAdapter(applicationContext)
+//                var a = ProductsAdapter(applicationContext/*, mTodo!!*/)
+                product_gv.adapter=ProductsAdapter(applicationContext,mProductItems!!)
 
             }
         })

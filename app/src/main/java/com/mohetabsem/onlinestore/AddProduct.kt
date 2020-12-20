@@ -26,7 +26,7 @@ class AddProduct : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("products")
 
-        myRef.setValue("Hello, World!")
+
         main_title.text="Add Products"
         var urls=ArrayList<String>()
         val builder=AlertDialog.Builder(this)
