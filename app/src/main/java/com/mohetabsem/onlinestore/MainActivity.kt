@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.widget.GridView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.google.firebase.database.*
 import com.mohetabsem.onlinestore.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.product.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 
@@ -20,11 +22,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mProductItems = ArrayList()
         //product_gv.adapter=ProductsAdapter(this)
-        mProductItems= ArrayList()
+
         mnue.setOnClickListener {
             var intent=Intent(this,AddProduct::class.java)
             startActivity(intent)
         }
+
+//        product_gv.add2cart.setOnItemClickListener { parent, view, position, id ->
+//            Toast.makeText(this,"#${product_gv.getItemAtPosition(position)} ",Toast.LENGTH_LONG).show()
+//
+//
+//        }
     }
 
     override fun onStart() {

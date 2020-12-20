@@ -1,6 +1,7 @@
 package com.mohetabsem.onlinestore
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_add_product.view.*
 import kotlinx.android.synthetic.main.product.view.*
@@ -31,7 +33,10 @@ class ProductsAdapter (context: Context,productList:ArrayList<ProductItem>):
         val imageView=layout_inflator.prodImage
         Picasso.get().load(item?.mainImg).into(imageView);
         layout_inflator.add2cart.setOnClickListener {
-            Toast.makeText(layout_inflator.context,"${getItem(position)?.name} ", Toast.LENGTH_LONG).show()
+            var intent=Intent(layout_inflator.context,ProductDeatails::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent)
+            //Toast.makeText(layout_inflator.context,"${getItem(position)?.name} ", Toast.LENGTH_LONG).show()
 
         }
         return layout_inflator
