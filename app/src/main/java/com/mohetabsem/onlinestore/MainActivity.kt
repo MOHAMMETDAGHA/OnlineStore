@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
             var intent=Intent(this,AddProduct::class.java)
             startActivity(intent)
         }
+        go2cart.setOnClickListener {
+            val cartIntent=Intent(this,Cart::class.java)
+            startActivity(cartIntent)
+        }
 
 //        product_gv.add2cart.setOnItemClickListener { parent, view, position, id ->
 //            Toast.makeText(this,"#${product_gv.getItemAtPosition(position)} ",Toast.LENGTH_LONG).show()

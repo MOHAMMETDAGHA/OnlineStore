@@ -94,8 +94,8 @@ class ProductDeatails : AppCompatActivity() {
         })
 
         cta_add2cart.setOnClickListener {
-            cartRef!!.child(id.toString())?.setValue(true)
-
+            cartRef!!.child(id.toString()).child("id")?.setValue(id.toString())
+            cartRef!!.child("${id.toString()}").child("count")?.setValue(1)
         }
     }
 
