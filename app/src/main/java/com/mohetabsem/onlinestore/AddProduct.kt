@@ -55,7 +55,12 @@ class AddProduct : AppCompatActivity() {
                 var description = productDesc.text.toString()
                 var price = productPrict.text.toString().toDouble()
                 var mainUrl = mainUrl.text.toString()
-                var mProduct = ProductItem(id, name, "description", price, mainUrl, urls)
+                var discount =productDis.text.toString().toDouble()
+
+                if(productDis.text.isEmpty()){discount=0.0}
+
+                var mProduct = ProductItem(id, name, "description", price,0.0, mainUrl, urls)
+
                 wtf("@@", "$urls")
                 myRef!!.child(id)?.setValue(mProduct)
                 

@@ -5,39 +5,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductDeatails">
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/toolbar"/>
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="408dp"
+        android:layout_height="505dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="deatails"
-        android:textAllCaps="true"
-        android:textColor="@color/primary"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        <TextView
+            android:id="@+id/discription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="5"
+            android:text="Factory Wholesale X6 bose headphone noise cancelling adapter gaming headphones earphone TWS w"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productImage" />
 
-    <TextView
-        android:id="@+id/deatails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="deatails"
-        android:textAllCaps="true"
-        android:textColor="@color/primary"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        <TextView
+            android:id="@+id/prodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/goBack"
+            app:layout_constraintEnd_toStartOf="@+id/like"
+            app:layout_constraintStart_toEndOf="@+id/goBack"
+            app:layout_constraintTop_toTopOf="@+id/goBack" />
+
+        <Button
+            android:id="@+id/goBack"
+            android:layout_width="46dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#002196F3"
+            android:shadowColor="#00FFFFFF"
+            app:icon="@drawable/abc_vector_test"
+            app:iconTint="@color/primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/like"
+            android:layout_width="58dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#00FFFFFF"
+            app:icon="@android:drawable/btn_star"
+            app:iconTint="@color/primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="411dp"
+            android:layout_height="232dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/primary"
+            android:backgroundTint="@color/primary"
+            android:padding="2dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="30% OFF"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/discription"
+            app:layout_constraintTop_toBottomOf="@+id/discription" />
+
+        <TextView
+            android:id="@+id/priceAfter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+            android:padding="2dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="19.99$"
+            android:textAllCaps="true"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/discount"
+            app:layout_constraintTop_toBottomOf="@+id/discount" />
+
+        <TextView
+            android:id="@+id/priceBefore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="2dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="60.00$"
+            android:textAllCaps="true"
+            android:textColor="#C8787878"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/priceAfter"
+            app:layout_constraintTop_toBottomOf="@+id/priceAfter" />
+
+        <Button
+            android:id="@+id/cta_add2cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
+            android:text="add to cart"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/priceAfter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.908"
+            app:layout_constraintStart_toEndOf="@+id/priceAfter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

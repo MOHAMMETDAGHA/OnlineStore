@@ -16,10 +16,14 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class MainActivity : AppCompatActivity() {
     var myRef: DatabaseReference? =null
+    var cartRef: DatabaseReference? =null
+
     var mProductItems :ArrayList<ProductItem>?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
         mProductItems = ArrayList()
         //product_gv.adapter=ProductsAdapter(this)
 
@@ -39,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("products")
-
+        val cartRef = database.getReference("cart")
         myRef?.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(applicationContext, "no zeft", Toast.LENGTH_SHORT).show()
@@ -51,7 +55,6 @@ class MainActivity : AppCompatActivity() {
                 for (m in snapshot!!.children ){ // add keys
                     var item =m.getValue(ProductItem::class.java)
                     mProductItems?.add(0,item!!)
-                    //wtf("++","${m.getValue(Todo::class.java)}")
                 }
 //                var a = ProductsAdapter(applicationContext/*, mTodo!!*/)
                 product_gv.adapter=ProductsAdapter(applicationContext,mProductItems!!)
@@ -59,4 +62,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 }

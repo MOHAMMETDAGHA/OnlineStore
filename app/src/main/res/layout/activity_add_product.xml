@@ -64,6 +64,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:text="DISCOUNT"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/productDis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="discount"
+                android:inputType="text"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="PRODUCT description"
                 android:textAllCaps="true"
                 android:textSize="24sp" />

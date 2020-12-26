@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.util.Log
+import android.util.Log.wtf
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,8 +33,12 @@ class ProductsAdapter (context: Context,productList:ArrayList<ProductItem>):
         layout_inflator.discriptionTxt.text=item?.description
         val imageView=layout_inflator.prodImage
         Picasso.get().load(item?.mainImg).into(imageView);
+
         layout_inflator.add2cart.setOnClickListener {
+            item=getItem(position)
             var intent=Intent(layout_inflator.context,ProductDeatails::class.java)
+            wtf("pased id ","${item?.id}")
+            intent.putExtra("id","${item?.id}")
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(intent)
             //Toast.makeText(layout_inflator.context,"${getItem(position)?.name} ", Toast.LENGTH_LONG).show()
