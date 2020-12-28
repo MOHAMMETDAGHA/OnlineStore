@@ -8,6 +8,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class Cart : AppCompatActivity() {
@@ -15,7 +16,9 @@ class Cart : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         main_title.text="CART"
-
+        var addapter:ArrayList<String>
+        addapter= arrayListOf("oooo","ddd")
+        cart_list.adapter=CartAdapter(this,addapter)
         // get data from db
         val database = FirebaseDatabase.getInstance()
         val cartRef = database.getReference("cart")
@@ -27,7 +30,7 @@ class Cart : AppCompatActivity() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                for (m in snapshot.children){
-                   wtf("m is ","${m}")
+                   wtf("m is ","${m.getValue()}")
                }
             }
         })
