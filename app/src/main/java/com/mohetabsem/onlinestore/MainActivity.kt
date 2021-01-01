@@ -23,10 +23,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         mProductItems = ArrayList()
         //product_gv.adapter=ProductsAdapter(this)
-
         mnue.setOnClickListener {
             var intent=Intent(this,AddProduct::class.java)
             startActivity(intent)
@@ -54,17 +52,18 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onDataChange(snapshot: DataSnapshot) {
                 Toast.makeText(applicationContext, "db", Toast.LENGTH_SHORT).show()
-
                 mProductItems?.clear()
                 for (m in snapshot!!.children ){ // add keys
                     var item =m.getValue(ProductItem::class.java)
-                    mProductItems?.add(0,item!!)
+                    if (item != null) {
+                        mProductItems?.add(0,item)
+                    }else{
+                        Toast.makeText(applicationContext,"null item found",Toast.LENGTH_LONG).show()
+                    }
                 }
 //                var a = ProductsAdapter(applicationContext/*, mTodo!!*/)
                 product_gv.adapter=ProductsAdapter(applicationContext,mProductItems!!)
-
             }
         })
     }
-
 }
