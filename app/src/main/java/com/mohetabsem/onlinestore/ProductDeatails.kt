@@ -26,31 +26,6 @@ class ProductDeatails : AppCompatActivity() {
         wtf("tocken id ","${id}")
     }
 
-//    fun getIdDeatails(id:String){
-//        val database = FirebaseDatabase.getInstance()
-//        val prodRef = database.getReference("products").child(id)
-//
-//        //
-//        prodRef?.addValueEventListener(object : ValueEventListener {
-//            override fun onCancelled(error: DatabaseError) {
-//                Toast.makeText(applicationContext, "no zeft", Toast.LENGTH_SHORT).show()
-//            }
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                var item = snapshot.getValue(ProductItem::class.java)
-//                wtf("item","${item?.name}")
-//                productData=item
-//                prodName.text=item?.name
-//                wtf("TAG", "${item?.description} ")
-//                discription.text=item?.description
-//                priceBefore.text="5.5"//data?.price.toString()
-//                prodName.text="item?.name"
-//
-////                    product_gv.adapter=ProductsAdapter(applicationContext,mProductItems!!)
-//            }
-//        })
-//
-//    }
-
     override fun onStart() {
         super.onStart()
         val database = FirebaseDatabase.getInstance()

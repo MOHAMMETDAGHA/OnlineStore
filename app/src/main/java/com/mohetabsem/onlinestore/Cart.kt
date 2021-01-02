@@ -12,16 +12,12 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class Cart : AppCompatActivity() {
-     var items:ArrayList<CartData>?=null
-
+    var cartItems:ArrayList<CartData>?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         main_title.text="CART"
-
-        var addapter:ArrayList<String>
-        addapter= arrayListOf("oooo","ddd")
-
+        cartItems= ArrayList()
 
         // get data from db
         val database = FirebaseDatabase.getInstance()
@@ -32,19 +28,21 @@ class Cart : AppCompatActivity() {
                 Toast.makeText(applicationContext, "no zeft", Toast.LENGTH_SHORT).show()
             }
             override fun onDataChange(snapshot: DataSnapshot) {
-               for (m in snapshot.children){
-                   items?.clear()
+
+
+                for (m in snapshot!!.children){
+                   //items?.clear()
                   var item=m.getValue(CartData::class.java)
-                   if (item != null) {
-                       items?.add(0,item)
-                       wtf("##","${item.count}")
-                   }else{
-                       Toast.makeText(applicationContext,"null item found",Toast.LENGTH_LONG).show()
-                   }
+                       cartItems?.add(item!!)
+                       wtf("##","${item?.id}")
+                       wtf("items","${cartItems?.get(0)}")
+
                }
+                wtf("items","${cartItems}")
+                cart_list.adapter=CartAdapter(applicationContext, cartItems!!)
             }
         })
         // end getting cart item
-        cart_list.adapter= items?.let { CartAdapter(this, it) }
+        wtf("items","cartItems}")
     }
 }
