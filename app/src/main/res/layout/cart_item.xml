@@ -61,51 +61,35 @@
         app:layout_constraintStart_toEndOf="@+id/pImage"
         app:layout_constraintTop_toBottomOf="@+id/pPrice" />
 
-    <TextView
-        android:id="@+id/pCount"
-        android:layout_width="28dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:gravity="center"
-        android:paddingLeft="6sp"
-        android:paddingRight="6sp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.0" />
-
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/add1"
         android:layout_width="20dp"
         android:layout_height="19dp"
-        android:layout_marginStart="12dp"
+        android:background="@drawable/add"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/pCount"
         app:layout_constraintTop_toTopOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/add" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/del1"
         android:layout_width="20dp"
         android:layout_height="19dp"
-        android:layout_marginStart="4dp"
+        android:background="@drawable/minus"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/minus" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/removeFromCart"
         android:layout_width="25dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/remove_from_cart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/remove_from_cart" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/total"
@@ -117,22 +101,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/pImage"
         app:layout_constraintEnd_toEndOf="@+id/removeFromCart" />
 
-    <com.skyline.widget.layout.RoundCornerLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/pCount"
+        android:layout_width="20dp"
         android:layout_height="0dp"
-        android:background="#FF1414"
-        android:backgroundTint="#FF0000"
-        app:bottomLeftEnabled="false"
-        app:bottomRightEnabled="false"
-        app:cornerRadius="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/total"
-        app:layout_constraintEnd_toStartOf="@+id/total"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/total"
-        app:topLeftEnabled="true"
-        app:topRightEnabled="true">
-
-        <!-- Add your target layout here -->
-    </com.skyline.widget.layout.RoundCornerLayout>
+        android:gravity="center"
+        android:text="  "
+        app:layout_constraintBottom_toBottomOf="@+id/del1"
+        app:layout_constraintStart_toEndOf="@+id/del1"
+        app:layout_constraintTop_toTopOf="@+id/del1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

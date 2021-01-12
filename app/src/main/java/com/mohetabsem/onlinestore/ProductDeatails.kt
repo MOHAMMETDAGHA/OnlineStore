@@ -38,7 +38,7 @@ class ProductDeatails : AppCompatActivity() {
         val prodRef = database.getReference("products").child(id.toString())
         var item:ProductItem?=null
         //
-        prodRef?.addValueEventListener(object : ValueEventListener {
+        prodRef?.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(applicationContext, "no zeft", Toast.LENGTH_SHORT).show()
             }
