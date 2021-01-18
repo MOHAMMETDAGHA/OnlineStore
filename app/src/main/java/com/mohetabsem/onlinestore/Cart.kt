@@ -21,6 +21,7 @@ class Cart : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
+
         main_title.text="CART"
         cartItems= ArrayList()
         productsInCart= ArrayList()
@@ -38,11 +39,14 @@ class Cart : AppCompatActivity() {
 
                 for (m in snapshot!!.children){
                    //items?.clear()
+//                    productsInCart!!.clear()
+//                    productsCount!!.clear()
+                    // get from cart
                     var item=m.getValue(CartData::class.java)
                     cartItems?.add(item!!)
                     // add data to products array accerding 2 id
-
                     val prodRef = database.getReference("products").child(item?.id!!)
+                    // get product according cart item
                     prodRef?.addValueEventListener(object : ValueEventListener {
                         override fun onCancelled(error: DatabaseError) {
                             Toast.makeText(applicationContext, "no zeft", Toast.LENGTH_SHORT).show()
@@ -51,18 +55,18 @@ class Cart : AppCompatActivity() {
                             var cItem = snapshot.getValue(ProductItem::class.java)
                             productsInCart?.add(cItem!!)
                             productsCount?.add(item?.count!!)
+
                         }
                     })
-
                }
+                //Func().calcAll(productsInCart!!, productsCount!!)
 
-                wtf("items","${cartItems}")
-                cart_list.adapter=CartAdapter(applicationContext, productsInCart!!,productsCount!!)
             }
         })
 
         // end getting cart item
         // get producaat all info
+        cart_list.adapter=CartAdapter(applicationContext, productsInCart!!,productsCount!!)
 
     }
 }

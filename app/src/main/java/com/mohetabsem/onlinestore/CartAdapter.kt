@@ -73,8 +73,8 @@ class CartAdapter(context: Context,var productList: ArrayList<ProductItem>,var p
         }
         cell.del1.setOnClickListener {
             var x =count--
-            productList.clear()
-            productCount.clear()
+//            productList.clear()
+//            productCount.clear()
             cartRef!!.child(cartId).child("count")?.setValue(count)
             //notifyDataSetChanged()
 
