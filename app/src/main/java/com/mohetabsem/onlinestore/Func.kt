@@ -24,7 +24,7 @@ class Func {
         var subTotal=0.0
         var discount=0.0
         var total=0.0
-        Log.wtf("size", "${products.size} -- ")
+        Log.wtf("size", "${products.lastIndex} -- ")
         for (m in count){
             Log.wtf("++++", "${m} ")
 

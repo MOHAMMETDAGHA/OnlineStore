@@ -2,6 +2,7 @@ package com.mohetabsem.onlinestore
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Log.wtf
 import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
@@ -36,11 +37,15 @@ class Cart : AppCompatActivity() {
                 Toast.makeText(applicationContext, "no zeft", Toast.LENGTH_SHORT).show()
             }
             override fun onDataChange(snapshot: DataSnapshot) {
+                Toast.makeText(applicationContext, " zeft", Toast.LENGTH_SHORT).show()
+//                cartItems?.clear()
+                productsInCart!!.clear()
+                productsCount!!.clear()
 
                 for (m in snapshot!!.children){
-                   //items?.clear()
-//                    productsInCart!!.clear()
-//                    productsCount!!.clear()
+                    wtf("$$","there is an item")
+
+
                     // get from cart
                     var item=m.getValue(CartData::class.java)
                     cartItems?.add(item!!)
@@ -53,20 +58,25 @@ class Cart : AppCompatActivity() {
                         }
                         override fun onDataChange(snapshot: DataSnapshot) {
                             var cItem = snapshot.getValue(ProductItem::class.java)
+                            Toast.makeText(applicationContext, "dp", Toast.LENGTH_SHORT).show()
                             productsInCart?.add(cItem!!)
                             productsCount?.add(item?.count!!)
 
                         }
                     })
                }
-                //Func().calcAll(productsInCart!!, productsCount!!)
 
+                var add=CartAdapter(applicationContext, productsInCart!!,productsCount!!)
+                add.notifyDataSetChanged()
+                cart_list.adapter=add
+                Log.wtf("size @@", "${productsInCart!!.count()} ")
+                Func().calcAll(productsInCart!!, productsCount!!)
             }
+
         })
 
         // end getting cart item
         // get producaat all info
-        cart_list.adapter=CartAdapter(applicationContext, productsInCart!!,productsCount!!)
 
     }
 }

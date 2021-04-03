@@ -65,10 +65,10 @@ class CartAdapter(context: Context,var productList: ArrayList<ProductItem>,var p
         // when add item
         cell.add1.setOnClickListener {
             var x =count++
-            productList.clear()
-            productCount.clear()
+//            productList.clear()
+//            productCount.clear()
             cartRef!!.child(cartId).child("count")?.setValue(count)
-            //notifyDataSetChanged()
+            notifyDataSetChanged()
 
         }
         cell.del1.setOnClickListener {
@@ -76,7 +76,7 @@ class CartAdapter(context: Context,var productList: ArrayList<ProductItem>,var p
 //            productList.clear()
 //            productCount.clear()
             cartRef!!.child(cartId).child("count")?.setValue(count)
-            //notifyDataSetChanged()
+            notifyDataSetChanged()
 
         }
         return cell
